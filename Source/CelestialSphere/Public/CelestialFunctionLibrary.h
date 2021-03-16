@@ -16,13 +16,13 @@ class CELESTIALSPHERE_API UCelestialFunctionLibrary : public UBlueprintFunctionL
 	GENERATED_BODY()
 
 	static FDateTime J2000Epoch;
-	
-public:	
+
+public:
 	UFUNCTION(BlueprintCallable)
 	static float GetGreenwichMeanSiderealAngle(const FDateTime& GregorianDateTime);
 
 	UFUNCTION(BlueprintCallable)
-    static float GetLocalMeanSiderealAngle(float InGreenwichMeanSiderealAngle, float Longitude);
+	static float GetLocalMeanSiderealAngle(float InGreenwichMeanSiderealAngle, float Longitude);
 
 	// Converts the star's B-V colour index into Kelvins.
 	UFUNCTION(BlueprintCallable)

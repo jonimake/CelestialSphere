@@ -6,21 +6,18 @@
 #include "Components/ActorComponent.h"
 #include "CelestialSphereRotationComponent.generated.h"
 
-
-UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
+UCLASS(ClassGroup=(Custom), meta=(BlueprintSpawnableComponent))
 class CELESTIALSPHERE_API UCelestialSphereRotationComponent : public UActorComponent
 {
 	GENERATED_BODY()
 
-public:	
-	// Sets default values for this component's properties
+public:
 	UCelestialSphereRotationComponent();
 
 protected:
-	// Called when the game starts
 	virtual void BeginPlay() override;
 	virtual void PostEditChangeProperty(FPropertyChangedEvent& PropertyChangedEvent) override;
-	
+
 	UPROPERTY()
 	USceneComponent* OwnerRoot;
 
@@ -29,8 +26,8 @@ protected:
 
 	UPROPERTY()
 	FDateTime GameStartTime;
-	
-public:	
+
+public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category="Coordinates")
 	float Latitude;
 
@@ -42,7 +39,7 @@ public:
 
 	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, Category = "Time")
 	float CurrentGreenwichMeanSiderealAngle;
-	
+
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Time")
 	FDateTime StartTime;
 
@@ -53,12 +50,12 @@ public:
 	float TimeScale;
 
 	// Called every frame
-	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
+	virtual void TickComponent(float DeltaTime, ELevelTick TickType,
+	                           FActorComponentTickFunction* ThisTickFunction) override;
 
 	UFUNCTION(BlueprintCallable)
 	FDateTime GetScaledElapsedTime() const;
 
 	UFUNCTION(BlueprintCallable)
 	void RotateSky();
-
 };

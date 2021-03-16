@@ -14,7 +14,7 @@ float UCelestialFunctionLibrary::GetGreenwichMeanSiderealAngle(const FDateTime& 
 
 	double greenwichMeanSiderealTime = 280.46061837 + 360.98564736629 * (julianDay - J2000);
 	const float sign = FMath::Sign(greenwichMeanSiderealTime);
-	while(greenwichMeanSiderealTime < 0.f || greenwichMeanSiderealTime > 360.f)
+	while (greenwichMeanSiderealTime < 0.f || greenwichMeanSiderealTime > 360.f)
 	{
 		greenwichMeanSiderealTime = greenwichMeanSiderealTime - sign * 360.f;
 	}
@@ -23,7 +23,7 @@ float UCelestialFunctionLibrary::GetGreenwichMeanSiderealAngle(const FDateTime& 
 
 double UCelestialFunctionLibrary::GetJulianDay(const FDateTime& dateTime)
 {
-	return 1721425.5 + static_cast<double>(dateTime.GetTicks()) / static_cast<double>(ETimespan::TicksPerDay);	
+	return 1721425.5 + static_cast<double>(dateTime.GetTicks()) / static_cast<double>(ETimespan::TicksPerDay);
 }
 
 FDateTime UCelestialFunctionLibrary::GetJ2000Epoch()
@@ -36,7 +36,7 @@ float UCelestialFunctionLibrary::GetLocalMeanSiderealAngle(float InGreenwichMean
 	float lmst = InGreenwichMeanSiderealAngle + Longitude;
 	// need to normalize to 0..360 again since longitude addition might cause the value to go out of 0..360 range
 	const float sign = FMath::Sign(lmst);
-	while(lmst < 0.f || lmst > 360.f)
+	while (lmst < 0.f || lmst > 360.f)
 	{
 		lmst = lmst - sign * 360.f;
 	}

@@ -23,35 +23,35 @@ UCLASS()
 class CELESTIALSPHERE_API AProceduralCelestialSphere : public AActor
 {
 	GENERATED_BODY()
-	
-public:	
+
+public:
 
 	AProceduralCelestialSphere();
-	
+
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Components")
 	class UCelestialSphereRotationComponent* CelestialSphereRotationComponent;
-	
+
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Components")
 	class USceneComponent* SceneRoot;
 
 	UPROPERTY(BlueprintReadOnly, VisibleDefaultsOnly, Category = "Components")
 	UArrowComponent* CelestialNorth;
-	
+
 	UPROPERTY(BlueprintReadOnly, VisibleDefaultsOnly, Category = "Components")
 	UTextRenderComponent* CelestialNorthText;
 
 	UPROPERTY(BlueprintReadOnly, VisibleDefaultsOnly, Category = "Components")
 	UArrowComponent* XPositive;
-	
+
 	UPROPERTY(BlueprintReadOnly, VisibleDefaultsOnly, Category = "Components")
 	UTextRenderComponent* XPositiveText;
-	
+
 	UPROPERTY(BlueprintReadOnly, VisibleDefaultsOnly, Category = "Components")
 	UArrowComponent* YPositive;
 
 	UPROPERTY(BlueprintReadOnly, VisibleDefaultsOnly, Category = "Components")
 	UTextRenderComponent* YPositiveText;
-		
+
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Components")
 	class UProceduralMeshComponent* CelestialMesh;
 
@@ -99,7 +99,7 @@ public:
 
 	// Add text component for the star, only adds one of the given Star data has a proper name.
 	UFUNCTION(BlueprintCallable)
-    void AddTextComponentForStar(const FStar& StarData);
+	void AddTextComponentForStar(const FStar& StarData);
 
 	// Builds the procedural mesh
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
@@ -113,7 +113,7 @@ public:
 
 	// Creates an index buffer for a quad.
 	UFUNCTION(BlueprintCallable)
-    static TArray<int32> GetQuadTriangleBuffer(int32 index);
+	static TArray<int32> GetQuadTriangleBuffer(int32 index);
 
 	// Generate UVs for a quad
 	UFUNCTION(BlueprintCallable)
@@ -122,16 +122,16 @@ public:
 	// Generate UVs for a triangle. The UV forms an equilateral triangle with the center at [0.5, 0.5] in UV space
 	// with the triangle rotated so that the bottom edge is horizontal.
 	UFUNCTION(BlueprintCallable)
-    static TArray<FVector2D> GetTriangleUVs();
+	static TArray<FVector2D> GetTriangleUVs();
 
 	// Creates vertices that form an equilateral triangle at the given star coordinates. 
 	// The triangle is rotated to face the actor origin.
 	UFUNCTION(BlueprintCallable)
-    static TArray<FVector> GetTriangleVerts(const FStar& StarData, float Scale = 1.f, float Distance = 1.f);
+	static TArray<FVector> GetTriangleVerts(const FStar& StarData, float Scale = 1.f, float Distance = 1.f);
 
 	// Generates a triangle index buffer.
 	UFUNCTION(BlueprintCallable)
-    static TArray<int32> GetTriangleBuffer(int32 index);
+	static TArray<int32> GetTriangleBuffer(int32 index);
 
 	// Reads star data from the given data table.
 	UFUNCTION(BlueprintCallable)
@@ -141,5 +141,4 @@ public:
 	// Essentially it just switches X and Z coordinates.
 	UFUNCTION(BlueprintCallable)
 	void ConvertCoordinates(UPARAM(ref) TArray<FStar>& data);
-	
 };

@@ -21,13 +21,13 @@ void UCelestialSphereRotationComponent::BeginPlay()
 	Super::BeginPlay();
 	OwnerRoot = GetOwner()->GetRootComponent();
 	GameStartTime = FDateTime::UtcNow();
-	StartTransform = GetOwner()->GetActorTransform();	
+	StartTransform = GetOwner()->GetActorTransform();
 }
 
 void UCelestialSphereRotationComponent::PostEditChangeProperty(FPropertyChangedEvent& PropertyChangedEvent)
 {
-	Super::PostEditChangeProperty(PropertyChangedEvent);	
-	if(GetOwner() && GetWorld() && !GetWorld()->IsPreviewWorld())
+	Super::PostEditChangeProperty(PropertyChangedEvent);
+	if (GetOwner() && GetWorld() && !GetWorld()->IsPreviewWorld())
 	{
 		CurrentGreenwichMeanSiderealAngle = UCelestialFunctionLibrary::GetGreenwichMeanSiderealAngle(CurrentTime);
 		CurrentLocalMeanSiderealAngle = UCelestialFunctionLibrary::GetLocalMeanSiderealAngle(CurrentGreenwichMeanSiderealAngle, Longitude);
@@ -35,7 +35,8 @@ void UCelestialSphereRotationComponent::PostEditChangeProperty(FPropertyChangedE
 	}
 }
 
-void UCelestialSphereRotationComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
+void UCelestialSphereRotationComponent::TickComponent(float DeltaTime, ELevelTick TickType,
+                                                      FActorComponentTickFunction* ThisTickFunction)
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 	CurrentTime = GetScaledElapsedTime();
