@@ -23,3 +23,7 @@ can in turn be used in the material of the mesh.
 Stars' data can be found under the resources folder. 
 Source of this data is [https://github.com/astronexus/HYG-Database](https://github.com/astronexus/HYG-Database).
 You can obviously use any kind of data, as long as it can be massaged into the `FStar` struct.
+
+### Star data
+
+The star coordinates are in J2000.0 epoch and equinox. 
