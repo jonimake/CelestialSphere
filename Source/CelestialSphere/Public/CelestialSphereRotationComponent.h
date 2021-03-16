@@ -49,7 +49,6 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Time")
 	float TimeScale;
 
-	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType,
 	                           FActorComponentTickFunction* ThisTickFunction) override;
 
