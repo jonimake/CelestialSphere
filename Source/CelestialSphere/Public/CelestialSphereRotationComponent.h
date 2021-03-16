@@ -41,9 +41,6 @@ public:
 	float CurrentGreenwichMeanSiderealAngle;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Time")
-	FDateTime StartTime;
-
-	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, Category = "Time")
 	FDateTime CurrentTime;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Time")

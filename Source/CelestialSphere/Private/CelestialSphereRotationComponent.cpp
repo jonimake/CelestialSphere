@@ -8,7 +8,7 @@
 UCelestialSphereRotationComponent::UCelestialSphereRotationComponent()
 {
 	PrimaryComponentTick.bCanEverTick = true;
-	FDateTime::ParseIso8601(TEXT("2000-03-20T12:00:00.000Z"), StartTime);
+	FDateTime::ParseIso8601(TEXT("2000-03-20T12:00:00.000Z"), CurrentTime);
 	TimeScale = 1.f;
 	Latitude = 60.1733244;
 	Longitude = 24.9410248;
@@ -50,7 +50,7 @@ FDateTime UCelestialSphereRotationComponent::GetScaledElapsedTime() const
 	auto now = FDateTime::UtcNow();
 	auto timeSinceStart = now - GameStartTime;
 	timeSinceStart = timeSinceStart * TimeScale;
-	const auto time = StartTime + timeSinceStart;
+	const auto time = CurrentTime + timeSinceStart;
 	return time;
 }
 
