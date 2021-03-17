@@ -11,6 +11,8 @@ There is no visual difference with realistic brightness values.
 
 [A small demo video on youtube](https://www.youtube.com/watch?v=coOf1ppWQe8).
 
+A demo project can be found on the demo branch, it should work with UE 4.26.
+
 ## Features
 
 The plugin consists of two main classes. The first is an actor component that rotates the owning actor as sidereal time advances.
