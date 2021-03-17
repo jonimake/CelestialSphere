@@ -27,11 +27,22 @@ void UCelestialSphereRotationComponent::BeginPlay()
 void UCelestialSphereRotationComponent::PostEditChangeProperty(FPropertyChangedEvent& PropertyChangedEvent)
 {
 	Super::PostEditChangeProperty(PropertyChangedEvent);
+	
 	if (GetOwner() && GetWorld() && !GetWorld()->IsPreviewWorld())
 	{
-		CurrentGreenwichMeanSiderealAngle = UCelestialFunctionLibrary::GetGreenwichMeanSiderealAngle(CurrentTime);
-		CurrentLocalMeanSiderealAngle = UCelestialFunctionLibrary::GetLocalMeanSiderealAngle(CurrentGreenwichMeanSiderealAngle, Longitude);
-		RotateSky();
+		FName PropertyName = PropertyChangedEvent.GetPropertyName();
+		if (PropertyName == GET_MEMBER_NAME_CHECKED(UCelestialSphereRotationComponent, StartTime)
+			|| PropertyName == GET_MEMBER_NAME_CHECKED(UCelestialSphereRotationComponent, Latitude)
+			|| PropertyName == GET_MEMBER_NAME_CHECKED(UCelestialSphereRotationComponent, Longitude))
+		{
+			if(!GetWorld()->HasBegunPlay())
+			{
+				CurrentTime = StartTime;	
+			}
+			CurrentGreenwichMeanSiderealAngle = UCelestialFunctionLibrary::GetGreenwichMeanSiderealAngle(CurrentTime);
+			CurrentLocalMeanSiderealAngle = UCelestialFunctionLibrary::GetLocalMeanSiderealAngle(CurrentGreenwichMeanSiderealAngle, Longitude);
+			RotateSky();	
+		}
 	}
 }
 
