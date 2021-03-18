@@ -2,7 +2,7 @@
 
 A plugin for creating a realistically rotating celestial sphere with stars around the game world in Unreal Engine 4.
 
-[Sky with 50000 stars](https://i.imgur.com/tHCJbjt.png) of stars in action along with their 
+[Sky with 50000 stars](https://i.imgur.com/tHCJbjt.png) along with a wireframe view of the  
 [geometry](https://i.imgur.com/Jyl6reP.png).
 
 Obviously you don't need to have that many stars if you're aiming 
