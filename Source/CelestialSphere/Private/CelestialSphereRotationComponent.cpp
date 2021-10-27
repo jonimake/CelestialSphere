@@ -24,6 +24,7 @@ void UCelestialSphereRotationComponent::BeginPlay()
 	StartTransform = GetOwner()->GetActorTransform();
 }
 
+#if WITH_EDITOR
 void UCelestialSphereRotationComponent::PostEditChangeProperty(FPropertyChangedEvent& PropertyChangedEvent)
 {
 	Super::PostEditChangeProperty(PropertyChangedEvent);
@@ -45,6 +46,7 @@ void UCelestialSphereRotationComponent::PostEditChangeProperty(FPropertyChangedE
 		}
 	}
 }
+#endif
 
 void UCelestialSphereRotationComponent::TickComponent(float DeltaTime, ELevelTick TickType,
                                                       FActorComponentTickFunction* ThisTickFunction)

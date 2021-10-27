@@ -14,10 +14,13 @@ class CELESTIALSPHERE_API UCelestialSphereRotationComponent : public UActorCompo
 public:
 	UCelestialSphereRotationComponent();
 
-protected:
 	virtual void BeginPlay() override;
+	
+#if WITH_EDITOR
 	virtual void PostEditChangeProperty(FPropertyChangedEvent& PropertyChangedEvent) override;
-
+#endif
+	
+protected:
 	UPROPERTY()
 	USceneComponent* OwnerRoot;
 
